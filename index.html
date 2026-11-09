@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Expense Tracker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Smart Expense Tracker</h1>
+
+    <h2>Welcome!</h2>
+    <p>Manage your income and expenses easily.</p>
+
+    <!-- Dashboard -->
+    <h3>My Dashboard</h3>
+
+    <div class="cards">
+
+        <div class="card income">
+            <h4>Total Income</h4>
+            <p id="totalIncome">₹0</p>
+        </div>
+
+        <div class="card expense">
+            <h4>Total Expenses</h4>
+            <p id="totalExpense">₹0</p>
+        </div>
+
+        <div class="card balance">
+            <h4>Remaining Balance</h4>
+            <p id="balance">₹0</p>
+        </div>
+
+    </div>
+
+    <!-- Add Transaction -->
+    <h3>Add Transaction</h3>
+
+    <div class="form">
+
+        <input type="text" id="description"
+               placeholder="Enter description">
+
+        <input type="number" id="amount"
+               placeholder="Enter amount" min="0.01" step="0.01">
+
+        <select id="type">
+            <option value="income">Income</option>
+            <option value="expense">Expense</option>
+        </select>
+
+        <select id="category">
+            <option value="Food">Food</option>
+            <option value="Travel">Travel</option>
+            <option value="Shopping">Shopping</option>
+            <option value="Bills">Bills</option>
+            <option value="Education">Education</option>
+            <option value="Other">Other</option>
+        </select>
+
+        <label for="transactionDate">Transaction Date</label>
+        <input type="date" id="transactionDate">
+
+        <button onclick="addTransaction()">
+            Add Transaction
+        </button>
+
+    </div>
+
+    <!-- Monthly Report -->
+    <h3>Monthly Expense Report</h3>
+
+    <div class="report">
+
+        <label for="reportMonth">Select Month:</label>
+        <input type="month" id="reportMonth">
+
+        <div class="cards">
+
+            <div class="card income">
+                <h4>Monthly Income</h4>
+                <p id="monthlyIncome">₹0</p>
+            </div>
+
+            <div class="card expense">
+                <h4>Monthly Expenses</h4>
+                <p id="monthlyExpense">₹0</p>
+            </div>
+
+            <div class="card balance">
+                <h4>Monthly Balance</h4>
+                <p id="monthlyBalance">₹0</p>
+            </div>
+
+        </div>
+
+        <h4>Category-wise Expenses</h4>
+        <ul id="monthlyCategoryList"></ul>
+
+    </div>
+
+    <!-- Transaction History -->
+    <h3>Transaction History</h3>
+
+    <ul id="transactionList"></ul>
+
+</div>
+
+<!-- Expense Charts -->
+     <h3>Expense Analytics</h3>
+
+<div class="chart-container">
+
+    <div class="chart-box">
+        <h4>Category-wise Expenses</h4>
+        <canvas id="expensePieChart"></canvas>
+    </div>
+
+    <div class="chart-box">
+        <h4>Monthly Income vs Expenses</h4>
+        <canvas id="monthlyBarChart"></canvas>
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script src="script.js"></script>
+
+</body>
+</html>
